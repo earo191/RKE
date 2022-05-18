@@ -1,0 +1,508 @@
+:root {
+    /* Fonts */
+    --roboto       : 'Roboto', Tahoma;
+    --light         : 300;
+    --regular       : 400;
+    --bold          : 700;
+    /* Colors */
+    --primary       : #00020b; /*Fondo input ingresar-FondoSlider*/
+    --secondary     : #030044;
+    --third         : #f2f2f2;
+    --color-4       : tomato;
+    --color-5       : purple;
+    --white         : #f4f4f4  ;/* Letra INGRESAR */
+    --black         : #000000;
+    /* Grays */
+    --eye           : #9d9d9d;
+    --crear         : #d3d3d3;
+    --gray-1        : #0042ad;/*Aun no tienes cuenta*/
+    --gray-2        : #000000;
+    --gray-3        : #474747;
+    --gray-4        : #003eff2a; /* Últimos dos carácteres representan la opacidad */
+    /* Values */
+    --zero          : var(--zero);
+    /* Spaces */
+    --auto          : auto;
+    /* Layout */
+    --l-container-w : calc(100% - 40px);
+    /* Flexbox */
+    --flex          : flex;
+    --start         : start;
+    --center        : center;
+    --end           : end;
+    --grow-1        : 1;
+    --direction     : column;
+    /* Units */
+    --vh-100        : 100vh;
+    --h-100         : 100%;
+    --w-100         : 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+figure {
+    margin: var(--zero);
+}
+
+img {
+    display: block;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: var(--zero);
+    margin-bottom: var(--zero);
+}
+
+input {
+    background-color: #000620;/*Input user y password*/
+    width: var(--w-100);
+    height: 45px;
+    padding-left: 10px;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    
+    background-color: var(--secondary);
+
+    letter-spacing: 1px;
+    line-height: 50px;
+    font-size: 16px;
+    font-weight: var(--bold);
+    text-transform: uppercase;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: .85;
+    transition: all .25s;
+}
+
+    
+button {
+    border: none;
+    font-family: var(--roboto);
+}
+
+body {
+    background-color: #000110;
+    margin: var(--zero);
+
+    display: var(--flex);
+    flex-direction: var(--direction);
+    min-height: var(--vh-100);
+
+    font-family: var(--roboto);
+    }
+
+.title--1 {
+    font-weight: var(--bold);
+    font-size: 28px;
+}
+
+button.button--1 { /* Override al selector en donde se reutiliza la clase */
+    background: var(--primary);
+    color: var(--white);
+    border: 1px solid var(#00020b);
+    font-weight: var(--bold);
+    margin-top: var(--zero);
+    margin-bottom: var(--zero);
+}
+
+button.is-primary:hover {
+    background: var(--secondary);
+    border: 1px solid var(--secondary);
+}
+
+.d-block {
+    display: block;
+}
+
+.l-container {
+    width: var(--l-container-w);
+    margin-right: var(--auto);
+    margin-left: var(--auto);
+}
+
+/* Inicio "Login" */
+.login {
+    /* background-color: var(--secondary); */
+    margin-top: 30px;
+    /* margin-bottom: var(--auto); */
+    color: var(--white);
+    font-size: 16px;
+}
+
+.login__logo {
+    
+}
+
+.login__logo__image {
+    /* background-color: var(--secondary); */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+[class*="login__content__text"] {
+    line-height: 0px;
+    color: var(--gray-1);
+    font-size: 18px;
+    font-weight: var(--light);
+    margin-bottom: var(--zero);
+    text-align: var(--center);
+}
+
+.login__content__text--1 {
+    color: var(--primary);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.login__form {
+    /* background-color: var(--color-4); */
+    margin-top: 14px;
+    text-align: var(--center);
+}
+
+.login__form__item:last-child {
+    size: 14px;
+    position: relative;
+}
+
+#view-eye {   
+    fill: var(--eye);
+    width: 19px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+}
+
+#view-eye:hover {
+    stroke: currentColor;
+    cursor: pointer;
+}
+
+.login__form__item__input,
+.button--1 {
+    padding: 12px 8px;
+    width: var(--w-100);
+    line-height: 21px;
+    font-size: 13px;
+    font-weight: var(--light);
+    height: 43px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid var(--gray-2);
+    border-radius: 5px;
+    transition: all .2s;
+    color: var(--gray-3);
+}
+
+.login__form__item__input:focus {
+    outline: none;
+    border: 1px solid var(--primary);
+}
+
+
+.login__button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: var(--center);
+}
+
+/* .login__footer {
+    background-color: var(--color-5);
+} */
+
+.login__footer__item {
+    text-align: var(--center);
+}
+
+.login__footer__item a {
+    font-weight: var(--light);
+}
+
+.login__footer__item a:hover {  /* Override a Bootstrap */
+    text-decoration: none;
+}
+
+.login__footer__item:last-child {
+    color: var(--gray-1);
+    font-size: 13px;
+    font-weight: var(--light);
+    line-height: 44px;
+    position: relative;
+}
+
+.login__footer__item:last-child::before { /* Linea separacion */
+    content: '';
+    display: block;
+    width: var(--w-100);
+    height: 1px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: var(--gray-4);
+}
+
+.forget-password { /* Olvidaste tu contraseña */
+    color: var(--crear);
+    font-size: 11px;
+    font-style: var(--light);
+    line-height: 38px;
+}
+
+.user-register { /*Crear cuenta*/
+    display: block;
+    color: #14c0e1;
+    text-transform: uppercase;
+
+}
+
+.login__carousel {
+    display: none;
+}
+/* Fin "Login" */
+
+/* Inicio Carousel (Bootstrap) */
+.carousel-inner {
+    background-color: var(--primary);
+    height: 100vh;
+    position: relative;
+}
+
+.login__carousel__image {
+    /* background-color: hotpink; */
+    position: absolute;
+    /* top: var(--zero);
+    right: var(--zero);
+    bottom: var(--zero);
+    left: var(--zero);
+    margin: auto; */
+    width: var(--w-100);
+    height: var(--vh-100);
+}
+
+
+/* .login__carousel__image:nth-child(even) {
+    background-color: pink;
+} */
+
+.carousel-indicators {
+    /* background-color: turquoise; */
+    justify-content: var(--start);
+    margin-right: 0;
+    margin-left: 40px;
+}
+
+.carousel-indicators li { /* Override Bootstrap */
+    margin: 0 5px;
+    height: 13px;
+    width: 13px;
+    background-color: #000620;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    opacity: 2;
+}
+
+.carousel-indicators li.active { /* Override Bootstrap */
+    background-color: #00082c;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-item {
+    position: static; /* Override Bootstrap */
+    height: var(--vh-100);
+}
+
+.login__carousel__content {
+    /* background-color: hotpink; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: var(--w-100);
+    height: var(--vh-100);
+    display: var(--flex);
+    flex-direction: var(--direction);
+    padding: 20px 40px;
+}
+
+.login__carousel__content p {
+    margin-bottom: 0;
+    text-align: right;
+    font-size: 16px;
+    font-weight: var(--light);
+}
+
+/* .login__carousel__content__top {
+    background-color: tomato;
+} */
+
+.login__carousel__content__bottom {
+    /* background-color: seagreen; */
+    margin-top: auto;
+    margin-left: auto;
+    display: flex;
+    align-items: var(--center);
+    margin-right: 10px;
+}
+
+.login__carousel__button,
+.login__carousel__copy__button {
+    padding: 3px 22px;
+    border-radius: 25px;
+    border: 1px solid var(--white);
+    color: #00535e;
+    font-family: "Roboto";
+    font-size: 12px;
+    font-weight: var(--bold);
+    color: var(--white);
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+.login__carousel__button:hover {
+    text-decoration: none;
+    color: var(--primary);
+    background: var(--white);
+}
+
+.login__carousel__social {
+    /* background-color: lightblue; */
+    display: flex;
+    justify-content: space-between;
+    width: 125px;
+    margin-left: 20px;
+}
+
+.login__carousel__social__item svg {
+    width: 40px;
+    fill: var(--white)
+}
+
+
+
+.login__carousel__copy {
+    /* background-color: lime; */
+    position: absolute;
+    z-index: 10;
+    top: 40%;
+    transform:translateY(-40%);
+    left: 40px;
+    width: 350px;
+}
+
+.login__carousel__copy__title {
+    /* background-color: var(--primary); */
+    font-family: var(--roboto);
+    font-size: 36px;
+    font-weight: var(--light);
+    line-height: 42px;
+    margin-bottom: 20px;
+}
+
+
+
+.login__carousel__copy__button {
+    background-color: var(--secondary);
+    margin-left: 0; /* Override a la reutilización */
+    padding: 0; /* Override a la reutilización */
+
+    border-radius: 48px 48px 48px 48px;
+    background-color: var(--third);
+    color: var(--primary);
+    text-transform: uppercase;
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: var(--center);
+}
+
+.login__carousel__copy__button:hover {
+    opacity: .75;
+    transition: all .5s;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+    .d-block {
+        display: inline-block;
+    }
+
+    .l-container {
+        width: var(--w-100);
+    }
+    
+    /* Inicio "Login" */
+    .login__logo {
+        text-align: left;
+    }
+
+    .login {
+        margin-top: var(--zero);
+        display: var(--flex);
+        height: var(--vh-100);
+    }
+    
+    .login__container {
+        flex: var(--grow-1)  472px;
+        display: var(--flex);
+        flex-direction: var(--direction);
+        justify-content: var(--center);
+        padding-right: 50px;
+        padding-left: 50px;
+        margin-right: var(--center);
+        margin-left: var(--center);
+        max-width: 472px;
+    }
+
+    .login__form__item:last-child {
+        display: inline-block;
+    }
+
+    .login__carousel {
+        display: block;
+        flex-grow: var(--grow-1)
+    }
+
+    .login__form__item__input,
+    .button--1 {
+
+        width: 358px;
+    }
+
+    .user-register {
+        display: inline-block;
+    }
+    /* Fin "Login" */
+}
+
+@media screen and (min-width: 1200px) {
+    .login__container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
