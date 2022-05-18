@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{asset('template/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
     <link  rel="stylesheet" href="{{asset('alertify/themes/alertify.core.css')}}">
     <link rel="stylesheet"  href="{{asset('alertify/themes/alertify.default.css')}}">
-    <link rel="shortcat icon" href="{{ asset('imgSystema/favi.png') }}"> 
+    <link rel="shortcat icon" href="{{ asset('img/favi.png') }}"> 
   </head>
   <body>
 
