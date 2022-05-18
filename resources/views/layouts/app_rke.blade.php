@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="{{ asset('alertify/themes/alertify.default.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-    <link rel="shortcat icon" href="{{ asset('imgSystema/favi.png') }}"> 
+    <link rel="shortcat icon" href="{{ asset('img/favi.png') }}"> 
 
 </head>
 
@@ -76,7 +76,7 @@
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
                 <a href="{{ url('/home') }}" class="brand-link">
-                    <img src="{{ asset('imgSystema/play.png') }}" alt="Logo Play RKE" class="brand-image  elevation-0"
+                    <img src="{{ asset('img/play.png') }}" alt="Logo Play RKE" class="brand-image  elevation-0"
                         style="opacity: .8">
                     <!-- <span class="brand-text font-weight-light">Dashboard</span>-->
                 </a>
