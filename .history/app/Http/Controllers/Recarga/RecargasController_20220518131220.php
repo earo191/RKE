@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Recarga;
 
 use App\Http\Controllers\Controller;
-use App\Models\Recarga;
 use Illuminate\Http\Request;
 
 class RecargasController extends Controller
@@ -15,9 +14,11 @@ class RecargasController extends Controller
      */
     public function index()
     {
+        //
         $recargas= Recarga::all();
-        return view('modulos/admin/recargas/index')->with([
+        return view('modulos/user/trivia/index')->with([
             'recargas' => $recargas]);
+
     }
 
     /**
@@ -73,12 +74,6 @@ class RecargasController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $recarga = Recarga::findOrFail($id);
-        $recarga->estatus = '1';
-        $recarga->save();
-
-        return redirect('recarga'); 
-
     }
 
     /**

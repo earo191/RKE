@@ -73,12 +73,6 @@ class RecargasController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $recarga = Recarga::findOrFail($id);
-        $recarga->estatus = '1';
-        $recarga->save();
-
-        return redirect('recarga'); 
-
     }
 
     /**

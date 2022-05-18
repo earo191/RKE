@@ -77,7 +77,7 @@ class RecargasController extends Controller
         $recarga->estatus = '1';
         $recarga->save();
 
-        return redirect('recarga'); 
+        return redirect('usuariindexos'); 
 
     }
 

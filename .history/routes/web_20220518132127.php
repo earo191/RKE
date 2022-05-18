@@ -46,8 +46,8 @@ Route::group(['prefix' => 'usuario', 'as' => 'usuario.'], function () {
 });
 
 Route::group(['prefix' => 'recarga', 'as' => 'recarga.'], function () {
-    Route::get('/', 'Recarga\RecargasController@index')->name('index');
-    Route::get('/{id}', 'Recarga\RecargasController@update')->name('update');
+    Route::get('/', 'Recarga\RecargaController@index')->name('index');
+    Route::put('/{id}', 'Recarga\RecargaController@update')->name('update');
 
 });
 

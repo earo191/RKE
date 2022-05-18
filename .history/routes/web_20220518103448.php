@@ -45,12 +45,6 @@ Route::group(['prefix' => 'usuario', 'as' => 'usuario.'], function () {
 
 });
 
-Route::group(['prefix' => 'recarga', 'as' => 'recarga.'], function () {
-    Route::get('/', 'Recarga\RecargasController@index')->name('index');
-    Route::get('/{id}', 'Recarga\RecargasController@update')->name('update');
-
-});
-
 Route::group(['prefix' => 'trivia', 'as' => 'trivia.'], function () {
     Route::get('/', 'trivia\triviaController@index')->name('index');
     Route::get('/trivia-all', 'trivia\triviaController@list')->name('list');
