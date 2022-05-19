@@ -4,7 +4,7 @@
 @section('content')
 <article class="login__container">
     <header class="login__logo">
-      <img src="{{asset('imgSystema/play.png')}}" alt="Logo PLAYRKE" class="login__logo__image">
+      <img src="{{asset('img/play.png')}}" alt="Logo PLAYRKE" class="login__logo__image">
     </header>
     <article class="login__content">
       <p class="login__content__text">

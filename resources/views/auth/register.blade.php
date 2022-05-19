@@ -4,15 +4,10 @@
   <article class="login__container">
     <br>
     <header class="login__logo">
-      <img src="{{asset('static/images/play.png')}}" alt="Logo PLAYRKE" class="login__logo__image">
+      <img src="{{ asset('img/play.png') }}" alt="Logo PLAYRKE" class="login__logo__image">
     </header>
     <article class="login__content">
-      <p class="login__content__text">
-        Ingresa a tu cuenta
-      </p>
-      <p class="login__content__text--1">
-        Juega y Gana Con Nosotros
-      </p>
+      
       <section class="login__form">
         @foreach ($errors->all() as $message)
           <div class="alert alert-danger alert-dismissible fade show" role="alert">
