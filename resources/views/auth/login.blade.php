@@ -15,7 +15,13 @@
         <form action="{{ route('login') }}" method="post" id="form1">
           <input type="hidden" name="_token" id="token" value="{{csrf_token()}}">
             <article class="login__form__item">
-              <input type="email" class="login__form__item__input" name="email" placeholder="Usuario/Correo">
+              <input id="login" type="text" class="login__form__item__input @if ($errors->has('username') || $errors->has('email')) is-invalid @endif"name="login" 
+            value="{{ old('username') ?: old('email') }}" required autocomplete="login" placeholder="Usuario/Correo" utofocus>
+                @if ($errors->has('username') || $errors->has('email'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('username') ?: $errors->first('email') }}</strong>
+                    </span>
+                @endif
             </article>
             <article class="login__form__item">
               <input type="hidden"  id="bandera" value="0">
