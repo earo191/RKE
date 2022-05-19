@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Recarga;
 
 use App\Http\Controllers\Controller;
 use App\Models\Recarga;
-use App\Models\Banco;
-use App\User;
 use Illuminate\Http\Request;
 
 class RecargasController extends Controller

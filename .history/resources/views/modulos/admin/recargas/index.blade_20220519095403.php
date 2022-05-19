@@ -113,7 +113,7 @@
                                 @if($recarga->estatus == 0)
                                 <td>Por aceptar</td>                                                                
                                 @else
-                                <td class="btn-success text-center">Aceptado</td> 
+                                <td class="btn-success">Aceptado</td> 
                                 @endif
                                 @foreach($users as $user)
                                 @if($user->id == $recarga->usuario_id )

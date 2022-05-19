@@ -40,9 +40,9 @@
                                 <td>{{$recarga->referencia}}</td>
                                 <td>{{$recarga->descripcion}}</td>
                                 @if($recarga->estatus == 0)
-                                <td class="btn-danger text-center">Por aceptar</td>                                                                
+                                <td>Por aceptar</td>                                                                
                                 @else
-                                <td><span >Aceptado</span></td> 
+                                <td><span class="success">Aceptado</span></td> 
                                 @endif
                                 @foreach($users as $user)
                                 @if($user->id == $recarga->usuario_id )
@@ -113,7 +113,7 @@
                                 @if($recarga->estatus == 0)
                                 <td>Por aceptar</td>                                                                
                                 @else
-                                <td class="btn-success text-center">Aceptado</td> 
+                                <td>Aceptado</td> 
                                 @endif
                                 @foreach($users as $user)
                                 @if($user->id == $recarga->usuario_id )

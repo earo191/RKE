@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Recarga;
 
 use App\Http\Controllers\Controller;
 use App\Models\Recarga;
-use App\Models\Banco;
-use App\User;
 use Illuminate\Http\Request;
 
 class RecargasController extends Controller
@@ -20,12 +18,9 @@ class RecargasController extends Controller
         $recargas= Recarga::all()->where("estatus", "=", '1');
         $esperas= Recarga::all()->where("estatus", "=", '0');
         $bancos= Banco::all();
-        $users= User::all();
         return view('modulos/admin/recargas/index')->with([
             'recargas' => $recargas,
-            'esperas' => $esperas,
-            'bancos' => $bancos,
-            'users' => $users]);
+            'esperas' => $esperas]);
     }
 
     /**
