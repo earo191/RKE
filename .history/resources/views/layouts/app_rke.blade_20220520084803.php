@@ -225,7 +225,7 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item ">
-                                        <a href="{{ route('recarga.index') }}" title="Trivias" class="nav-link {{! Route::is('recarga.index') ?: 'active'}}">
+                                        <a href="{{ route('recarga.index') }}" title="Trivias" class="nav-link {{! Route::is('recarga.aceptadas') ?: 'active'}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>En espera</p>
                                         </a>

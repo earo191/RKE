@@ -212,36 +212,29 @@
                                     </li>
                                     
                                 </ul>
+                                <hr />
                             </li>
 
                             {{-- li trivias --}}
                             <li class="nav-item has-treeview ">
-                                <a class="nav-link {{! Route::is('recarga.index') ?: 'active'}}">
+                                <a class="nav-link {{! Route::is('trivia.index') ?: 'active'}}">
                                     <i class="nav-icon fas fas fa-university"></i>
                                     <p>
-                                        Recargas
+                                        Trivias
                                         <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item ">
-                                        <a href="{{ route('recarga.index') }}" title="Trivias" class="nav-link {{! Route::is('recarga.index') ?: 'active'}}">
+                                        <a href="{{ route('trivia.index') }}" title="Trivias" class="nav-link {{! Route::is('trivia.index') ?: 'active'}}">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>En espera</p>
+                                            <p>Crear Trivia</p>
                                         </a>
                                     </li>
-
                                     <li class="nav-item ">
-                                        <a href="{{ route('recarga.aceptadas') }}" title="Trivias" class="nav-link {{! Route::is('recarga.aceptadas') ?: 'active'}}">
+                                        <a href="{{ route('trivia.list') }}" title="Trivias" class="nav-link {{! Route::is('trivia.list') ?: 'active'}}">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Aceptadas</p>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item ">
-                                        <a href="{{ route('recarga.rechazadas') }}" title="Trivias" class="nav-link {{! Route::is('recarga.rechazadas') ?: 'active'}}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Rechazadas</p>
+                                            <p>Ver Trivias</p>
                                         </a>
                                     </li>
                                     

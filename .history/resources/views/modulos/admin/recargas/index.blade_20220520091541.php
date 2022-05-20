@@ -40,7 +40,7 @@
                                 <td>{{$recarga->referencia}}</td>
                                 <td>{{$recarga->descripcion}}</td>
                                 @if($recarga->estatus == 0)
-                                <td class="btn-primary">Por aceptar</td>                                                                
+                                <td class="btn-primary">Espera</td>                                                                
                                 @else
                                 <td><span >Aceptado</span></td> 
                                 @endif

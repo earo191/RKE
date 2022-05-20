@@ -212,43 +212,8 @@
                                     </li>
                                     
                                 </ul>
-                            </li>
-
-                            {{-- li trivias --}}
-                            <li class="nav-item has-treeview ">
-                                <a class="nav-link {{! Route::is('recarga.index') ?: 'active'}}">
-                                    <i class="nav-icon fas fas fa-university"></i>
-                                    <p>
-                                        Recargas
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item ">
-                                        <a href="{{ route('recarga.index') }}" title="Trivias" class="nav-link {{! Route::is('recarga.index') ?: 'active'}}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>En espera</p>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item ">
-                                        <a href="{{ route('recarga.aceptadas') }}" title="Trivias" class="nav-link {{! Route::is('recarga.aceptadas') ?: 'active'}}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Aceptadas</p>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item ">
-                                        <a href="{{ route('recarga.rechazadas') }}" title="Trivias" class="nav-link {{! Route::is('recarga.rechazadas') ?: 'active'}}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Rechazadas</p>
-                                        </a>
-                                    </li>
-                                    
-                                </ul>
                                 <hr />
                             </li>
-                            {{-- li trivias --}}
 
 
                             <li class="nav-item">

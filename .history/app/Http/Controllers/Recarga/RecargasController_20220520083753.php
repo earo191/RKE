@@ -28,11 +28,11 @@ class RecargasController extends Controller
     
     public function rechazadas()
     {
-        $recargas= Recarga::all()->where("estatus", "=", '3');
+        $rechazadas= Recarga::all()->where("estatus", "=", '3');
         $bancos= Banco::all();
         $users= User::all();
         return view('modulos/admin/recargas/rechazadas')->with([
-            'recargas' => $recargas,
+            'recargas' => $rechazadas,
             'bancos' => $bancos,
             'users' => $users]);
     }
@@ -102,16 +102,6 @@ class RecargasController extends Controller
         //
         $recarga = Recarga::findOrFail($id);
         $recarga->estatus = '1';
-        $recarga->save();
-
-        return redirect('recarga'); 
-
-    }
-    public function rechazar(Request $request, $id)
-    {
-        //
-        $recarga = Recarga::findOrFail($id);
-        $recarga->estatus = '3';
         $recarga->save();
 
         return redirect('recarga'); 

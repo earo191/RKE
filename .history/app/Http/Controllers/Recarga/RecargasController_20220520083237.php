@@ -17,15 +17,16 @@ class RecargasController extends Controller
      */
     public function index()
     {
+        $recargas= Recarga::all()->where("estatus", "=", '1');
         $esperas= Recarga::all()->where("estatus", "=", '0');
         $bancos= Banco::all();
         $users= User::all();
         return view('modulos/admin/recargas/index')->with([
+            'recargas' => $recargas,
             'esperas' => $esperas,
             'bancos' => $bancos,
             'users' => $users]);
     }
-    
     public function rechazadas()
     {
         $recargas= Recarga::all()->where("estatus", "=", '3');
@@ -102,16 +103,6 @@ class RecargasController extends Controller
         //
         $recarga = Recarga::findOrFail($id);
         $recarga->estatus = '1';
-        $recarga->save();
-
-        return redirect('recarga'); 
-
-    }
-    public function rechazar(Request $request, $id)
-    {
-        //
-        $recarga = Recarga::findOrFail($id);
-        $recarga->estatus = '3';
         $recarga->save();
 
         return redirect('recarga'); 

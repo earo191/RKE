@@ -50,7 +50,6 @@ Route::group(['prefix' => 'recarga', 'as' => 'recarga.'], function () {
     Route::get('/aceptadas', 'Recarga\RecargasController@aceptadas')->name('aceptadas');
     Route::get('/rechazadas', 'Recarga\RecargasController@rechazadas')->name('rechazadas');
     Route::get('/{id}', 'Recarga\RecargasController@update')->name('update');
-    Route::get('/rechazar/{id}', 'Recarga\RecargasController@rechazar')->name('rechazar');
 
 });
 

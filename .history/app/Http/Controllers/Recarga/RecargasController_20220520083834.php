@@ -107,16 +107,6 @@ class RecargasController extends Controller
         return redirect('recarga'); 
 
     }
-    public function rechazar(Request $request, $id)
-    {
-        //
-        $recarga = Recarga::findOrFail($id);
-        $recarga->estatus = '3';
-        $recarga->save();
-
-        return redirect('recarga'); 
-
-    }
 
     /**
      * Remove the specified resource from storage.

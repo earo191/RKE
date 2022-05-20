@@ -225,21 +225,21 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item ">
-                                        <a href="{{ route('recarga.index') }}" title="Trivias" class="nav-link {{! Route::is('recarga.index') ?: 'active'}}">
+                                        <a href="{{ route('trivia.index') }}" title="Trivias" class="nav-link {{! Route::is('recarga.aceptadas') ?: 'active'}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>En espera</p>
                                         </a>
                                     </li>
 
                                     <li class="nav-item ">
-                                        <a href="{{ route('recarga.aceptadas') }}" title="Trivias" class="nav-link {{! Route::is('recarga.aceptadas') ?: 'active'}}">
+                                        <a href="{{ route('trivia.index') }}" title="Trivias" class="nav-link {{! Route::is('recarga.aceptadas') ?: 'active'}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Aceptadas</p>
                                         </a>
                                     </li>
 
                                     <li class="nav-item ">
-                                        <a href="{{ route('recarga.rechazadas') }}" title="Trivias" class="nav-link {{! Route::is('recarga.rechazadas') ?: 'active'}}">
+                                        <a href="{{ route('trivia.list') }}" title="Trivias" class="nav-link {{! Route::is('recarga.rechazadas') ?: 'active'}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Rechazadas</p>
                                         </a>
