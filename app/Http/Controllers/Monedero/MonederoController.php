@@ -9,6 +9,7 @@ use App\User;
 use App\Models\Banco;
 use App\Models\Recarga;
 use App\Models\Monedero;
+use App\Models\CuentaBancaria;
 use Session;
 class MonederoController extends Controller
 {
@@ -47,6 +48,19 @@ class MonederoController extends Controller
         
     }
 
+    public function createTranferencia()
+    {
+        $bancos = Banco::All();
+        $userAdmin = User::where("t_user", "=", 2)->get();
+        $cuentaBancaria = CuentaBancaria::where("usuario_id","=", $userAdmin[0]->id)->get();
+
+        return view('modulos/user/monedero/recargaTranf')->with([
+            'cuentaBancaria' => $cuentaBancaria,
+            'bancos' => $bancos
+        ]);
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -71,6 +85,8 @@ class MonederoController extends Controller
         $recarga->save();
         Return redirect()->route('monedero.index');
     }
+
+    
 
     /**
      * Display the specified resource.

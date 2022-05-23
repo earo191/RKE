@@ -22,38 +22,40 @@
                 <div class="card-body">
                     <div class="row">
                     <div class="col-12">
-                        <table id="" class="table table-bordered table-striped" style="width:100%">
-                            <thead>
-                        
-                                <tr>
-                                    <th>ID</th> 
-                                    <th>cedula</th>
-                                    <th>telefono</th>
-                                    <th>Principal</th>
-                                    <th>Acciones</th>
-                                </tr>
-                        
-                            </thead>
-                            <tbody>
-                            @foreach($pagomovils as $pagomovil)
-                                <tr>
-                                    <th>{{$pagomovil->id}}</th> 
-                                    <th>{{$pagomovil->cedula}}</th>
-                                    <td>{{$pagomovil->telefono}}</td>
-                                    @if ($pagomovil->principal == 1)
-                                        <td>Si</td>
-                                    @else
-                                        <td>no</td>
-                                    @endif
-                                    <th>
-                                        <a href="" class="btn  btn-primary"><i class="fas fa-edit"></i></a>
-                                        <a href="" class="btn  btn-danger"><i class="fa fa-trash"></i></a>
-                                    </th>
-                                </tr>
-                            @endforeach          
+                        <div class="table-responsive">
+                            <table id="" class="table table-bordered table-striped" style="width:100%">
+                                <thead>
+                            
+                                    <tr>
+                                        <th>ID</th> 
+                                        <th>cedula</th>
+                                        <th>telefono</th>
+                                        <th>Principal</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                            
+                                </thead>
+                                <tbody>
+                                @foreach($pagomovils as $pagomovil)
+                                    <tr>
+                                        <th>{{$pagomovil->id}}</th> 
+                                        <th>{{$pagomovil->cedula}}</th>
+                                        <td>{{$pagomovil->telefono}}</td>
+                                        @if ($pagomovil->principal == 1)
+                                            <td>Si</td>
+                                        @else
+                                            <td>no</td>
+                                        @endif
+                                        <th>
+                                            <a href="" class="btn  btn-primary"><i class="fas fa-edit"></i></a>
+                                            <a href="" class="btn  btn-danger"><i class="fa fa-trash"></i></a>
+                                        </th>
+                                    </tr>
+                                @endforeach          
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     </div>
                     <!-- /.row -->

@@ -67,7 +67,9 @@ Route::group(['prefix' => 'trivia', 'as' => 'trivia.'], function () {
 Route::group(['prefix' => 'monedero', 'as' => 'monedero.'], function () {
     Route::get('/', 'monedero\MonederoController@index')->name('index');
     Route::get('/Crear', 'monedero\MonederoController@create')->name('create');
+    Route::get('/tranferencia', 'monedero\MonederoController@createTranferencia')->name('createTransfer');
     Route::post('store', 'monedero\MonederoController@store')->name('store');
+    // Route::post('store/transfer', 'monedero\MonederoController@storeTranfer')->name('storeTranfer');
 
 });
 

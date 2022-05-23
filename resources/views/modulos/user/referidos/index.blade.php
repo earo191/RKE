@@ -24,27 +24,29 @@
             
             <div class="row">
                 <div class="col-12">
-                    <table id="example1" class="table table-bordered table-striped" style="width:100%">
-                        <thead>
-                    
-                            <tr>
-                                <th>Id</th> 
-                                <th>Username</th>
-                                <th>email</th>
-                            </tr>
-                    
-                        </thead>
-                        <tbody>
-                        @foreach($referidos as $refe)
-                            <tr>
-                                <th>{{$refe->id}}</th> 
-                                <th>{{$refe->username}}</th>
-                                <td>{{$refe->email}}</td>                            
-                            </tr>
-                        @endforeach          
+                    <div class="table-responsive">
+                        <table id="example1" class="table table-bordered table-striped" style="width:100%">
+                            <thead>
+                        
+                                <tr>
+                                    <th>Id</th> 
+                                    <th>Username</th>
+                                    <th>email</th>
+                                </tr>
+                        
+                            </thead>
+                            <tbody>
+                            @foreach($referidos as $refe)
+                                <tr>
+                                    <th>{{$refe->id}}</th> 
+                                    <th>{{$refe->username}}</th>
+                                    <td>{{$refe->email}}</td>                            
+                                </tr>
+                            @endforeach          
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <!-- /.row -->

@@ -23,35 +23,37 @@
                                     <div class="card-body">
                                         <div class="row">
                                         <div class="col-12">
-                                            <table id="example1" class="table table-bordered table-striped" style="width:100%">
-                                                <thead>
-                                            
-                                                    <tr>
-                                                        <th>ID</th> 
-                                                        <th>Nombre</th>
-                                                        <th>Incripcion</th>
-                                                        <th>Fecha trivia</th>
-                                                        <th>Hora</th>
-                                                        <th>imagen</th>
-                                                        <th>Musica</th>
-                                                    </tr>
-                                            
-                                                </thead>
-                                                <tbody>
-                                                @foreach($trivias as $trivia)
+                                            <div class="table-responsive">
+                                                <table id="example1" class="table table-bordered table-striped" style="width:100%">
+                                                    <thead>
+                                                
                                                         <tr>
-                                                        <th>{{$trivia->id}}</th> 
-                                                        <th>{{$trivia->nombre}}</th>
-                                                        <td>{{$trivia->precio}}</td>
-                                                        <td>{{$trivia->fecha}}</td>
-                                                        <td>{{$trivia->hora}}</td>
-                                                        <td>{{$trivia->imagen}}</td>
-                                                        <td>{{$trivia->audio}}</td>
+                                                            <th>ID</th> 
+                                                            <th>Nombre</th>
+                                                            <th>Incripcion</th>
+                                                            <th>Fecha trivia</th>
+                                                            <th>Hora</th>
+                                                            <th>imagen</th>
+                                                            <th>Musica</th>
                                                         </tr>
-                                                @endforeach          
+                                                
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($trivias as $trivia)
+                                                            <tr>
+                                                            <th>{{$trivia->id}}</th> 
+                                                            <th>{{$trivia->nombre}}</th>
+                                                            <td>{{$trivia->precio}}</td>
+                                                            <td>{{$trivia->fecha}}</td>
+                                                            <td>{{$trivia->hora}}</td>
+                                                            <td>{{$trivia->imagen}}</td>
+                                                            <td>{{$trivia->audio}}</td>
+                                                            </tr>
+                                                    @endforeach          
 
-                                                </tbody>
-                                            </table>
+                                                    </tbody>
+                                                </table>
+                                            <div class="table-responsive">
                                         </div>
                                         </div>
                                         <!-- /.row -->

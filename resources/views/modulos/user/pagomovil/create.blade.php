@@ -20,8 +20,18 @@
                                 <label class="labels">Cedula</label>
                                 <input id="cedula" type="text" name="cedula" class="form-control"  value="{{$user->cedula}}" style="pointer-events: none;">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-2">
                                 <label class="labels">Telefono</label>
+                                <select class="form-control" name="codigo_telefono" id="">
+                                    <option value="0412">0412</option>
+                                    <option value="0414">0414</option>
+                                    <option value="0424">0424</option>
+                                    <option value="0426">0426</option>
+                                    <option value="0416">0416</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="labels">Numero</label>
                                 <input id="telefono" type="text" name="telefono" class="form-control" value="" >
                             </div>
                         </div>

@@ -15,21 +15,25 @@
                             </button>
                         </h2>
                     </div>
-                    @if (Count($pagoMovil) != 0)
+                    @if (Count($cuentaBancaria) != 0)
                         <div class="card-body">
                             <div class="row ">
-                                <input type="hidden" name="id_banco" id="id_banco" value="{{$pagoMovil[0]->banco->id}}">
+                                <input type="hidden" name="id_banco" id="id_banco" value="{{$cuentaBancaria[0]->banco->id}}">
                                 <div class="col-md-6">
-                                    <label class="labels">Codigo - Banco</label>
-                                    <input id="codigo_banco" type="text" name="codigo_banco" class="form-control" value="{{$pagoMovil[0]->banco->codigo}} --{{$pagoMovil[0]->banco->nombre}}" disabled>
+                                    <label class="labels">Nro Cuenta banco : {{$cuentaBancaria[0]->banco->nombre}}</label>
+                                    <input id="codigo_banco" type="text" name="codigo_banco" class="form-control" value="{{$cuentaBancaria[0]->Nro_Cuenta}}" disabled>
                                 </div>
                                 <div class="col-md-3">
                                     <label class="labels">Cedula</label>
-                                    <input id="cedula" type="text" name="cedula" class="form-control"  value="{{$pagoMovil[0]->cedula}}" disabled>
+                                    <input id="cedula" type="text" name="cedula" class="form-control"  value="{{$cuentaBancaria[0]->cedula}}" disabled>
                                 </div>
                                 <div class="col-md-3">
-                                    <label class="labels">Telefono</label>
-                                    <input id="tlf_admin" type="text" name="tlf_admin" class="form-control" value="{{$pagoMovil[0]->telefono}}" disabled>
+                                    <label class="labels">Tipo Cuenta</label>
+                                    @if ( $cuentaBancaria[0]->Tipo_cuenta == 1)
+                                        <input id="tlf_admin" type="text" name="tlf_admin" class="form-control" value="Corriente" disabled>
+                                    @else
+                                        <input id="tlf_admin" type="text" name="tlf_admin" class="form-control" value="Ahorro" disabled>
+                                    @endif
                                 </div>
                             </div>
                             <div class="row ">
@@ -61,7 +65,7 @@
                                 
                                 <div class="col-md-6">
                                     <label class="labels">Descripcion</label>
-                                    <input id="descripcion" type="text" name="descripcion" class="form-control" value="Recarga por Pago movil" style="pointer-events: none;">
+                                    <input id="descripcion" type="text" name="descripcion" class="form-control" value="Recarga Por transferencia" style="pointer-events: none;">
                                 </div>
                                 
                             </div>
@@ -77,7 +81,7 @@
                                 <div class="col-md-12">
                                     <div class="alert alert-danger alert" style="display: flex">
                                         <div class="col-md-6">
-                                            <strong>Actualmente PLAYRKE No posee un pago movil</strong>
+                                            <strong>Actualmente PLAYRKE no posee un numero para transferencias</strong>
                                         </div>
                                         
                                     </div>
