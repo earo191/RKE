@@ -8,7 +8,9 @@ class PagoMovil extends Model
 {
     //
 
-
+	protected $fillable = [
+		'cedula', 'codigo', 'telefono', 'rif', 'principal', 'banco_id', 
+	  ];
 
 	// Relación user (n:1)
 		public function reUser(){

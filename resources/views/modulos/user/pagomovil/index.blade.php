@@ -28,6 +28,7 @@
                             
                                     <tr>
                                         <th>ID</th> 
+                                        <th>Banco</th> 
                                         <th>cedula</th>
                                         <th>telefono</th>
                                         <th>Principal</th>
@@ -39,6 +40,7 @@
                                 @foreach($pagomovils as $pagomovil)
                                     <tr>
                                         <th>{{$pagomovil->id}}</th> 
+                                        <th>{{$pagomovil->banco->nombre}}</th> 
                                         <th>{{$pagomovil->cedula}}</th>
                                         <td>{{$pagomovil->codigo}}{{$pagomovil->telefono}}</td>
                                         @if ($pagomovil->principal == 1)

@@ -19,15 +19,7 @@
         @endforeach
 
   
-<section class="login__form">
-           @foreach ($errors->all() as $message)
-                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                         <span class="text-center">{{ $message }}</span>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                         <span aria-hidden="true">&times;</span>
-                         </button>
-                   </div>
-            @endforeach
+
 
    <form action="{{ route('register') }}" method="post"  id="FormB8">
     @csrf
@@ -48,11 +40,25 @@
           <article class="login__form__item">
             <input type="password" class="login__form__item__input validar1" placeholder="Contraseña" name="password" id="password">
 
-            </article>
-            <article class="login__form__item">
-            <input id="password-confirm" type="password" class="login__form__item__input validar1" name="password_confirmation" placeholder="Repetir Contraseña" required autocomplete="new-password">
-
-
+          </article>
+          <article class="login__form__item">
+              <input id="password-confirm" type="password" class="login__form__item__input validar1" name="password_confirmation" placeholder="Repetir Contraseña" required autocomplete="new-password">
+          </article>  
+          <article class="login__form__item">
+            <input type="checkbox" style="width: 13px; " name="politicas">
+            <label style="font-size: 12px; width: 329px;
+            text-align: start;" >Acepto los <a href="#">Terminos y Condiciones </a>  y autorizo mis datos de acuerdo a las <a href="#">Políticas de privacidad </a> </label>
+          </article>
+          {{-- <article class="login__form__item">
+            <input type="checkbox" style="width: 13px; margin-right: -25px;" name="politicas">
+            <label style="font-size: 12px;" >Acepto los <a href="#">Terminos y Condiciones </a>  y autorizo mis datos de acuerdo a las <a href="#">Políticas de privacidad </a> </label>
+          </article>  --}}
+          {{-- <article class="login__form__item">
+            <input type="checkbox " class="login__form__item__input" style="width: 13px; margin-right: -25px;" name="politicas">
+            <label style="font-size: 12px;" " >Acepto los <a href="#">Terminos y Condiciones </a>  y autorizo mis datos de acuerdo a las <a href="#">Políticas de privacidad </a> </label>
+          </article> --}}
+        </article>
+        
         </form>
       </section>
     

@@ -23,6 +23,7 @@
                                 <label for="" class="labels">Seleccione Banco</label>
                                 <select name="banco" class="form-control" onchange="codigo_banco_2()">
                                     <option value="{{$cuentaBancaria->banco->codigo}}">{{$cuentaBancaria->banco->nombre}}</option>
+                                    
                                     @foreach($bancos as $banco)
                                         <option value="{{$banco->codigo}}">{{$banco->nombre}}</option>
                                     @endforeach 
@@ -55,7 +56,7 @@
                                 <label class="labels">Cedula</label>
                                 <input id="cedula" type="text" name="cedula" class="form-control"  value="{{$user->cedula}}" style="pointer-events: none;">
                             </div>
-
+                            
                         </div>
                         <div class="row ">
                             <div class="col-md-6">

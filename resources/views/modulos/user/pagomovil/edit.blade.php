@@ -3,7 +3,9 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <form action="{{route('pagomovil.store')}}"  method="POST" ">
+            <form action="{{route('pagomovil.update' , $pagomovil->id)}}"  method="POST" ">
+                {{ method_field('PUT') }}
+                {{ csrf_field() }}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="card">
                     <div class="card-header" id="headingOne" style="">
@@ -44,6 +46,7 @@
                             <div class="col-md-6">
                                 <label for="" class="labels">Seleccione Banco</label>
                                 <select name="banco" class="form-control">
+                                    <option value="{{$pagomovil->banco->id}}">{{$pagomovil->banco->codigo}}-{{$pagomovil->banco->nombre}}</option>
                                     @foreach($bancos as $banco)
                                     <option value="{{$banco->id}}">{{$banco->codigo}}-{{$banco->nombre}}</option>
                                     @endforeach 

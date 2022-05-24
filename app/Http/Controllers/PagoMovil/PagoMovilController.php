@@ -68,7 +68,23 @@ class PagoMovilController extends Controller
         ]);
     }
 
-    public function update(){
+    public function update(Request $request, $id){
         
+        // return $request->all();
+        $pagoMovil = PagoMovil::findOrFail($id);
+        $banco_id = Banco::where("id", "=", $request->banco)->get();
+        
+        // return $banco_id;
+        $pagoMovil->cedula = $request->cedula;
+        $pagoMovil->codigo = $request->codigo_telefono ;
+        $pagoMovil->telefono =  $request->telefono;
+        $pagoMovil->rif = $request->rif;
+        $pagoMovil->principal = $request->principal;
+        $pagoMovil->Banco_id = $banco_id->first()->id;
+
+        $pagoMovil->update();
+
+        Return redirect()->route('pagomovil.index');
+
     }
 }

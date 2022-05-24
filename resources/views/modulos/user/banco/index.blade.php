@@ -39,7 +39,7 @@
                                 @foreach($cuentas as $cuenta)
                                     <tr>
                                         <th>{{$cuenta->id}}</th> 
-                                        <th>{{$cuenta->Nro_Cuenta}}</th>
+                                        <th>{{$cuenta->codigo_banco}}{{$cuenta->Nro_Cuenta}}</th>
                                         <td>{{$cuenta->banco->nombre}}</td>
                                         @if ($cuenta->Tipo_cuenta == 1)
                                             <td>Corriente</td>
@@ -52,7 +52,7 @@
                                             <td>no</td>
                                         @endif
                                         <th>
-                                            <a href="" class="btn  btn-primary"><i class="fas fa-edit"></i></a>
+                                            <a href="{{ route('banco.edit', $cuenta->id)  }}" class="btn  btn-primary"><i class="fas fa-edit"></i></a>
                                             <a href="" class="btn  btn-danger"><i class="fa fa-trash"></i></a>
                                         </th>
                                         

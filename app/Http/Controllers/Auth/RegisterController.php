@@ -64,7 +64,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'pais' => ['required', 'numeric', 'exists:pais,id'],
-            
+            'politicas' => ['accepted'],
         ]);
     }
 
@@ -94,7 +94,8 @@ class RegisterController extends Controller
                 'password' => Hash::make($data['password']),
                 'pais_id' => $data['pais'],
                 'referral_code' => User::getUniqueReferralCode(),
-                'referred_by' => $this->getReferredBy()
+                'referred_by' => $this->getReferredBy(),
+                
             ]);
     
             $monedero = New Monedero;
