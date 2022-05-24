@@ -16,6 +16,7 @@ class CreatePagoMovilsTable extends Migration
         Schema::create('pago_movils', function (Blueprint $table) {
             $table->id();
             $table->string('cedula');
+            $table->string('codigo');
             $table->string('telefono');
             $table->string('rif')->nullable();
             $table->integer('principal');

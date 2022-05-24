@@ -15,7 +15,8 @@ class CreateCuentaBancariasTable extends Migration
     {
         Schema::create('cuenta_bancarias', function (Blueprint $table) {
             $table->id();
-            $table->string('Nro_Cuenta', 20);
+            $table->string('codigo_banco', 4);
+            $table->string('Nro_Cuenta', 16);
             $table->Integer('Tipo_cuenta');
             $table->string('cedula');
             $table->integer('principal');

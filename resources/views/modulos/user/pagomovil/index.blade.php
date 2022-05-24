@@ -40,14 +40,14 @@
                                     <tr>
                                         <th>{{$pagomovil->id}}</th> 
                                         <th>{{$pagomovil->cedula}}</th>
-                                        <td>{{$pagomovil->telefono}}</td>
+                                        <td>{{$pagomovil->codigo}}{{$pagomovil->telefono}}</td>
                                         @if ($pagomovil->principal == 1)
                                             <td>Si</td>
                                         @else
                                             <td>no</td>
                                         @endif
                                         <th>
-                                            <a href="" class="btn  btn-primary"><i class="fas fa-edit"></i></a>
+                                            <a href="{{ route('pagomovil.edit', $pagomovil->id)  }}" class="btn  btn-primary"><i class="fas fa-edit"></i></a>
                                             <a href="" class="btn  btn-danger"><i class="fa fa-trash"></i></a>
                                         </th>
                                     </tr>

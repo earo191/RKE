@@ -57,7 +57,8 @@ class BancosController extends Controller
         $banco_id = Banco::where("codigo", "=", $request->codigo_banco)->get();
         $cuentaBancaria = new CuentaBancaria;
         $cuentaBancaria->cedula = $request->cedula;
-        $cuentaBancaria->nro_cuenta = $request->codigo_banco . $request->nro_cuenta;
+        $cuentaBancaria->codigo_banco = $request->codigo_banco;
+        $cuentaBancaria->nro_cuenta = $request->nro_cuenta ;
         $cuentaBancaria->tipo_cuenta = $request->tipo_cuenta;
         $cuentaBancaria->principal = $request->principal;
         $cuentaBancaria->banco_id = $banco_id[0]->id;
@@ -89,6 +90,14 @@ class BancosController extends Controller
     public function edit($id)
     {
         //
+        $bancos = Banco::All();
+        $usuarioLogueado = auth()->user();
+        $cuentaBancaria = CuentaBancaria::findOrFail($id);
+        return view('modulos/user/banco/edit')->with([
+            'bancos' => $bancos,
+            'cuentaBancaria' => $cuentaBancaria,
+            'user' => $usuarioLogueado
+        ]);
     }
 
     /**
@@ -101,6 +110,11 @@ class BancosController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // return $request->all();
+        $cuentaBancaria = CuentaBancaria::findOrFail($id);
+        $cuentaBancaria->update($request->all());
+
+        Return redirect()->route('banco.index');
     }
 
     /**

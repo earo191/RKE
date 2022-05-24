@@ -76,13 +76,16 @@ Route::group(['prefix' => 'monedero', 'as' => 'monedero.'], function () {
 Route::group(['prefix' => 'banco', 'as' => 'banco.'], function () {
     Route::get('/', 'banco\bancosController@index')->name('index');
     Route::get('/Crear', 'banco\bancosController@create')->name('create');
+    Route::get('{id}/edit', 'banco\bancosController@edit')->name('edit');
     Route::post('store', 'banco\bancosController@store')->name('store');
+    Route::put('{id}', 'banco\bancosController@update')->name('update');
 
 });
 
 Route::group(['prefix' => 'pagomovil', 'as' => 'pagomovil.'], function () {
     Route::get('/', 'pagomovil\PagoMovilController@index')->name('index');
     Route::get('/Crear', 'pagomovil\PagoMovilController@create')->name('create');
+    Route::get('{id}/edit', 'pagomovil\PagoMovilController@edit')->name('edit');
     Route::post('store', 'pagomovil\PagoMovilController@store')->name('store');
 
 });

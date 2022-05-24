@@ -39,18 +39,33 @@ class PagoMovilController extends Controller
     }
     
     public function store(Request $request){
+
+        // return $request->all();
         $user= User::where('id',auth()->user()->id)->get();
         $banco= Banco::where('id',$request->banco)->get();
         $pagoMovil = new PagoMovil;
         $pagoMovil->cedula = $request->cedula;
-        $pagoMovil->telefono = $request->telefono;
+        $pagoMovil->codigo = $request->codigo_telefono ;
+        $pagoMovil->telefono =  $request->telefono;
         $pagoMovil->rif = $request->rif;
         $pagoMovil->principal = $request->principal;
         $pagoMovil->usuario_id = $user->first()->id;
         $pagoMovil->Banco_id = $banco->first()->id;
-
+        // return $pagoMovil;
         $pagoMovil->save();
         Return redirect()->route('pagomovil.index');
+    }
+
+    public function edit($id){
+        $usuarioLogueado = auth()->user();
+        $bancos = Banco::All();
+        $pagoMovil = PagoMovil::findOrFail($id);
+        return view('modulos/user/pagomovil/edit')->with([
+            'pagomovil' => $pagoMovil,
+            'user' => $usuarioLogueado,
+            'bancos'=> $bancos
+
+        ]);
     }
 
     public function update(){

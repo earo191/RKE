@@ -35,7 +35,7 @@
           <input type="email" class="login__form__item__input validar1" placeholder="Correo" name="email">
         </article>
         <article class="login__form__item">
-          <input type="text" class="login__form__item__input validar1" placeholder="Nombre de Usuario" name="name">
+          <input type="text" class="login__form__item__input validar1" placeholder="Nombre de Usuario" name="username">
         </article>
         <article class="login__form__item">
           
