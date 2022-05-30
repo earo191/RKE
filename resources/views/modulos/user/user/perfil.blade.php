@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header " id="div-active">
-                    <h1><span>Perfil : {{ $user->name }}</span></h1>
+                    <h1><span>Perfil : {{ $user->username }}</span></h1>
                     <button class="btn btn-primary" id="Activate">
                         Editar
                         <i class="fas fa-edit"></i>
@@ -18,21 +18,36 @@
                         <div class="row ">
                             <div class="col-md-6">
                                 <label class="labels">Nombre</label>
-                                <input id="nombre" type="text" name="name" class="form-control"
-                                    value="{{ $user->name }}" disabled>
+                                <input id="nombre" type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                                    value="{{ $user->name }}"  disabled>
+                                @error('name')
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <label class="labels">Apellido</label>
-                                <input id="apellido" type="text" name="apellido" class="form-control"
+                                <input id="apellido" type="text" name="apellido" class="form-control @error('apellido') is-invalid @enderror"
                                     value="{{ $user->apellido }}" disabled>
+                                @error('apellido')
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="row ">
                             <div class="col-md-6">
                                 <label class="labels">Cedula</label>
-                                <input id="cedula" type="text" name="cedula" class="form-control"
+                                <input id="cedula" type="text" name="cedula" class="form-control @error('cedula') is-invalid @enderror"
                                     value="{{ $user->cedula }}" disabled>
+                                @error('cedula')
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="col-md-6">
 
@@ -40,17 +55,11 @@
                                 <label class="labels">Pais</label>
 
                                 <select id="pais" name="pais_id" class="form-control @error('country') is-invalid @enderror" disabled>
-
-        
-
                                     
                                     @if (Count($pai) != 0 )
                                         <option value="{{ $pai[0]->id }}">{{ $pai[0]->name }}</option>
                                     @endif
-                                   
-                                     
-
-
+ 
                                     @foreach ($paices as $pais)
                                         <option value="{{ $pais->id }}">{{ $pais->name }}</option>
                                     @endforeach
@@ -79,8 +88,13 @@
 
                             <div class="col-md-6">
                                 <label class="labels">Telefono</label>
-                                <input id="phone" type="text" name="phone" class="form-control"
+                                <input id="phone" type="text" name="phone" class="form-control @error('phone') is-invalid @enderror"
                                     value="{{ $user->phone }}" disabled>
+                                @error('phone')
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
 
                             <div class="col-md-6">
@@ -110,7 +124,7 @@
     <script>
         var activarButton = document.getElementById('Activate');
 
-        var idsCampos = ['nombre', 'apellido', 'cedula', 'phone','foto', 'pais', 'username', 'guardar'];
+        var idsCampos = ['nombre', 'apellido', 'cedula', 'phone','foto', 'pais','guardar'];
 
         activarButton.addEventListener('click', function() {
             idsCampos.forEach(function(idCampo) {

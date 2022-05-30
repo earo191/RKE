@@ -27,9 +27,7 @@ Route::get('/modulos/admin/procesarpagos/pago_trivia', function () {
     return view('modulos.admin.procesarpagos.pago_trivia');
 });
 
-Route::get('/modulos/admin/tasa/index', function () {
-    return view('modulos.admin.tasa.index');
-});
+
 
 Route::get('/modulos/user/sala/index', function () {
     return view('modulos.user.sala.index');
@@ -76,9 +74,9 @@ Route::group(['prefix' => 'monedero', 'as' => 'monedero.'], function () {
 Route::group(['prefix' => 'banco', 'as' => 'banco.'], function () {
     Route::get('/', 'banco\bancosController@index')->name('index');
     Route::get('/Crear', 'banco\bancosController@create')->name('create');
-    Route::get('/edit/{id}', 'banco\bancosController@edit')->name('edit');
+    Route::get('{id}/edit', 'banco\bancosController@edit')->name('edit');
     Route::post('store', 'banco\bancosController@store')->name('store');
-    Route::put('/edit/{id}', 'banco\bancosController@update')->name('update');
+    Route::put('{id}', 'banco\bancosController@update')->name('update');
 
 });
 
@@ -90,6 +88,14 @@ Route::group(['prefix' => 'pagomovil', 'as' => 'pagomovil.'], function () {
     Route::put('/edit/{id}', 'pagomovil\PagoMovilController@update')->name('update');
 
 });
+
+Route::group(['prefix' => 'tasa', 'as' => 'tasa.'], function(){
+    Route::get('/', 'Tasa\TasaController@index')->name('index');
+});
+
+// Route::get('/modulos/admin/tasa/index', function () {
+//     return view('modulos.admin.tasa.index');
+// });
 
 Route::group(['prefix' => 'sala', 'as' => 'sala.'], function () {
     Route::get('/', 'sala\SalaController@index')->name('index');

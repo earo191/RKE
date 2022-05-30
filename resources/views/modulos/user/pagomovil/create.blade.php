@@ -32,13 +32,23 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="labels">Numero</label>
-                                <input id="telefono" type="text" name="telefono" class="form-control" value="" >
+                                <input id="telefono_pago" type="text" name="telefono" class="form-control @error('telefono') is-invalid @enderror" >
+                                @error('telefono')
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="row ">
                             <div class="col-md-6">
                                 <label class="labels">Rif</label>
-                                <input id="rif" type="text" name="rif" class="form-control"  value="" >
+                                <input id="rif" type="text" name="rif" class="form-control @error('rif') is-invalid @enderror"  value="" >
+                                @error('rif')
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <label for="" class="labels">Seleccione Banco</label>

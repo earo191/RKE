@@ -29,7 +29,12 @@
                                 <label class="labels">Nro Cuenta</label>
                                 <div style="display: flex">
                                     <input id="codigo_banco" type="text" name="codigo_banco" class="form-control col-md-2" value="{{$bancos[0]->codigo}}"  style="pointer-events: none;">
-                                    <input id="nro_cuenta" type="text" name="nro_cuenta" class="form-control" value="" >
+                                    <input id="nro_cuenta" type="text" name="nro_cuenta" class="form-control @error('nro_cuenta') is-invalid @enderror" value="" >
+                                    @error('nro_cuenta')
+                                        <span class="invalid-feedback" style="margin-left: 4px;">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

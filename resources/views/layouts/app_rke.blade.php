@@ -91,7 +91,7 @@
                         </div>
                         <div class="info">
                             <a href="{{ route('usuario.index') }}"
-                                class="d-block">{{ Auth::user()->name }}</a>
+                                class="d-block">{{ Auth::user()->username }}</a>
                         </div>
                     </div>
                     <!-- Sidebar user panel (optional) -->
@@ -252,7 +252,7 @@
 
 
                             <li class="nav-item">
-                                <a href="{{ url('modulos/admin/tasa/index') }}" class="nav-link {{! route::is('modulos/admin/tasa/index') ?: 'active'}}">
+                                <a href="{{ route('tasa.index') }}" class="nav-link {{ !Route::is('tasa.index') ?: 'active'}}">
                                     <i class="nav-icon fas fa-calendar-alt"></i>
                                     <p>
                                         Tasa de cambio
@@ -334,7 +334,7 @@
                                 <a href="{{ route('monedero.index') }}" class="nav-link">
                                     <i class="nav-icon fas fa-calendar-alt"></i>
                                     <p>
-                                        monedero
+                                        WALLET RKE
                                         <!-- <span class="badge badge-info right">2</span>-->
                                     </p>
                                 </a>
@@ -543,13 +543,38 @@
             <script type="text/javascript">
                 //https://s3.amazonaws.com/dolartoday/data.json
                 $.getJSON("https://s3.amazonaws.com/dolartoday/data.json", function(data) {
-                    $('#texto').html('$' + data.USD.transferencia);
-                    $('#texto2').html('$' + data.USD.sicad2);
-                    $('#al').html('DolarToday al: ' + data._timestamp.fecha);
+                    $('#texto').html(data.USD.transferencia);
+                    $('#texto2').html(data.USD.sicad2);
+                    $('#al').html( data._timestamp.fecha);
+                    $('#dolar_api').val( data.USD.transferencia);
                 });
             </script>
             {{-- API DOLARTODAY --}}
+            <script>
+                $(document).ready(function(){
+                    // Listen for the input event.
+                    $("#porcentaje_dolar").on('input', function (evt) {
+                    // Allow only numbers.
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                    $("#nro_cuenta").on('input', function (evt) {
+                    // Allow only numbers.
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                    $("#telefono_pago").on('input', function (evt) {
+                    // Allow only numbers.
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                    $("#cedula").on('input', function (evt) {
+                    // Allow only numbers.
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+            </script>
+            
         </div>
 </body>
 
 </html>
+
+
