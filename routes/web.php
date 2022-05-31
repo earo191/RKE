@@ -91,6 +91,7 @@ Route::group(['prefix' => 'pagomovil', 'as' => 'pagomovil.'], function () {
 
 Route::group(['prefix' => 'tasa', 'as' => 'tasa.'], function(){
     Route::get('/', 'Tasa\TasaController@index')->name('index');
+    Route::post('store', 'Tasa\TasaController@store')->name('store');
 });
 
 // Route::get('/modulos/admin/tasa/index', function () {

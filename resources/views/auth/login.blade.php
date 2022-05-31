@@ -80,6 +80,14 @@
       }
       
     });
+    $('#form1').keypress((e) => {
+  
+    // Enter key corresponds to number 13
+      if (e.which === 13) {
+          $('#form1').submit();
+          console.log('form submitted');
+      }
+    })
 
   </script>
 @endsection
