@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Tasa;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Tasa; 
+use Carbon\Carbon;
 
 class TasaController extends Controller
 {
@@ -37,6 +39,10 @@ class TasaController extends Controller
     public function store(Request $request)
     {
         //
+        return $request->all();
+        
+        // return $date = Carbon::now()->format('d-m-Y');
+
     }
 
     /**

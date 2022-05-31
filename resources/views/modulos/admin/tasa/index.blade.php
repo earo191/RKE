@@ -33,7 +33,8 @@
           </div>
           <div class="col-md-8">
             <h3>Añadir Porcentaje dolar RKE</h3>
-            <form action="">
+            <form  action="{{route('tasa.store')}}"  method="POST" >
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="row">
                 <div class="col-md-2">
                   <label class="labels">Dolar Api</label>
@@ -80,7 +81,20 @@
 @section('scripts')
 
     <script>
-      
+      function porcentaje() {
+        const api_dolar = document.querySelector(`input[name='dolar_api']`).value;
+        // document.querySelector(`input[name='gastos_transporte']`).value = portes_gastos;
+        const porcentaje = document.querySelector(`input[name='porcentaje_dolar'`).value;
+        let ecuacion = 0;
+        console.log(api_dolar)
+        console.log(porcentaje)
+        console.log(Number(api_dolar))
+        console.log(Number(porcentaje))
+        ecuacion = (Number(api_dolar) * Number(porcentaje))/100;
+        console.log(ecuacion)
+        let dolar_rke = Number(api_dolar) + ecuacion;
+        document.querySelector(`input[name='dolar_rke']`).value = dolar_rke.toFixed(2);
+      }
     </script>
     
 @endsection
