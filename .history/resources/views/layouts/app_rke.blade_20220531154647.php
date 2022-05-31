@@ -84,6 +84,7 @@
                 <div class="sidebar">
 
                     <!-- Sidebar user panel (optional) -->
+                    @if(Auth::guard())
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
                             <img src="{{ asset('template/dist/img/images.png') }}" class="img-circle elevation-2"
@@ -94,6 +95,7 @@
                                 class="d-block">{{ Auth::user()->username }}</a>
                         </div>
                     </div>
+                    @endif
                     <!-- Sidebar user panel (optional) -->
 
                     <!-- Sidebar Menu -->

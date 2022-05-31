@@ -50,11 +50,11 @@
           Crear cuenta
         </a>
       </article>
-      <div class="" style="position: absolute; margin-top: 77px; color: #14c0e1; margin-left: 45px;">
+      <div class="user-register" style="position: absolute; margin-top: 77px; margin-left: 45px;">
         <p>PlayRKE © 2022, todos los derechos reservados.</p>
-        <div class="user-register" style="font-size: 10.5px;">
-          <a href="{{ route('info.terminos') }}">Términos y condiciones -</a>
-          <a href="{{ route('info.quienesomos') }}"> Quienes somos - </a>
+        <div class="" style="font-size: 10.5px;">
+          <a href="{{ route('info.terminos') }}">Términos y condiciones</a>
+          <a href="{{ route('info.quienesomos') }}"> Quienes somos</a>
           <a href="{{ route('info.politicas') }}">Politica de privacidad</a>
         </div>
         
