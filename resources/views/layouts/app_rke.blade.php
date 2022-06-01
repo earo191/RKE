@@ -603,6 +603,10 @@
                     // Allow only numbers.
                         $(this).val($(this).val().replace(/[^0-9]/g, ''));
                     });
+                    $("#monto").on('input', function (evt) {
+                    // Allow only numbers.
+                        $(this).val($(this).val().replace(/[^0-9.]/g, ''));
+                    });
                 });
             </script>
             

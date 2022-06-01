@@ -13,18 +13,15 @@
                             <span style="font-size: 18px;">Saldo disponibles</span>
                             
                             <div id="saldos" class="saldos">
-                                <span id="saldo-bs" class="info-box-number">{{$monedero->saldo}} $</span>
-                                <span id="saldo-dolar" style="display: none;" class="info-box-number">{{$monedero->saldo * 4.53}}  Bs</span>
+                                <span id="saldo-bs" class="info-box-number">{{$monedero->saldo}} Bs</span>
+                                <span id="saldo-dolar" style="display: none;" class="info-box-number">{{number_format($monedero->saldo / $tasa[0]->tasa_RKE,2)}}  $</span>
                             </div>
                         </div>
                         
     
                         
                     </div>
-                    
-
-
-                    
+    
                 </div>
                 <div class="col-md-3" style="">
                     <a href="" title="Recargar Saldo" style="" data-target="#exampleModalLong" data-toggle="modal">
@@ -67,9 +64,8 @@
                         <div class="info-box-content">
                             <span class="info-box-text">1 Dolar </span>
                             <span class="info-box-number">
-                                <div id="texto"></div>
-                                <small></small>
-                              </span>
+                                {{$tasa[0]->tasa_RKE}}
+                            </span>
                         </div>
                         
                     </div>

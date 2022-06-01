@@ -34,26 +34,26 @@
                                     <th>{{$recarga->monto}}</th>
                                     <td>{{$recarga->fecha_recarga}}</td>
                                     @foreach($bancos as $banco)
-                                    @if($banco->id == $recarga->banco_emisor )
-                                    <td>{{$banco->nombre}}</td>
-                                    @endif
+                                        @if($banco->id == $recarga->banco_emisor )
+                                        <td>{{$banco->nombre}}</td>
+                                        @endif
                                     @endforeach
                                     <td>{{$recarga->referencia}}</td>
                                     <td>{{$recarga->descripcion}}</td>
                                     @if($recarga->estatus == 0)
-                                    <td class="btn-primary">Por aceptar</td>                                                                
+                                        <td class="btn-primary">Por aceptar</td>                                                                
                                     @else
-                                    <td><span >Aceptado</span></td> 
+                                        <td><span >Aceptado</span></td> 
                                     @endif
                                     @foreach($users as $user)
-                                    @if($user->id == $recarga->usuario_id )
-                                    <td>{{$user->name}}</td>
-                                    @endif
+                                        @if($user->id == $recarga->usuario_id )
+                                            <td>{{$user->username}}</td>
+                                        @endif
                                     @endforeach
                                     @foreach($bancos as $banco)
-                                    @if($banco->id == $recarga->banco_id )
-                                    <td>{{$banco->nombre}}</td>
-                                    @endif
+                                        @if($banco->id == $recarga->banco_id )
+                                            <td>{{$banco->nombre}}</td>
+                                        @endif
                                     @endforeach
                                     <th>
                                         <a href="{{url('recarga/'.$recarga['id'])}}" >

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
+use App\Models\Tasa; 
 use App\User;
 class HomeController extends Controller
 {
@@ -25,7 +26,10 @@ class HomeController extends Controller
     public function index()
     {
         $user = User::all();
+        $tasa = Tasa::orderBy('created_at','DESC')->get();
 
-        return view('home');
+        return view('home')->with([
+            'tasa' => $tasa
+        ]);
     }
 }

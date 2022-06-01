@@ -17,7 +17,11 @@ class TasaController extends Controller
     public function index()
     {
         //
-        return view('modulos/admin/tasa/index');
+        $tasa = Tasa::orderBy('created_at','DESC')->get();
+        // return $tasa;
+        return view('modulos/admin/tasa/index')->with([
+            'tasa' => $tasa
+        ]);
     }
 
     /**
@@ -39,9 +43,18 @@ class TasaController extends Controller
     public function store(Request $request)
     {
         //
-        return $request->all();
+        // return $request->all();
+        $tasa_rke = new Tasa;
+
+        $tasa_rke->tasa_oficial = $request->dolar_api;
+        $tasa_rke->porcentaje = $request->porcentaje_dolar;
+        $tasa_rke->tasa_RKE = $request->dolar_rke;
+        $tasa_rke->fecha = Carbon::now();
+
+        $tasa_rke->save();
+
+        Return redirect()->route('tasa.index');
         
-        // return $date = Carbon::now()->format('d-m-Y');
 
     }
 

@@ -9,9 +9,14 @@
                 <div class="info-box-content">
                     <span class="info-box-text">1 Dolar </span>
                     <span class="info-box-number">
-                        <div id="texto"></div>
+                        @if (count($tasa) > 0) 
+                        <span>{{$tasa[0]->tasa_RKE}}</span>
+                        @else
+                            <span>No hay Tasa $</span>
+                        @endif
+                        
                         <small></small>
-                      </span>
+                    </span>
                 </div>
                 
             </div>

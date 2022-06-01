@@ -21,40 +21,52 @@
       </div>
       <div class="card-body">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-12">
             <div class="fecha">
               <h4>Fecha: <span id="al"></span></h4>
               
             </div>
             <div class="cotizacion">
-              <h4>Transferencia : <span id="texto"></span></h4>
+              <h4>Transferencia : <span id="texto"  ></span></h4>
               <h4>Sicad: <span id="texto2"></span></h4>
             </div>
+
+            <div class="tasa_rke">
+              <h4>RKE_TASA : @if (count($tasa) > 0) <span>{{$tasa[0]->tasa_RKE}}</span>@else <span class="alert alert-danger">PLAY RKE NO TIENE TASA DE DOLAR ACTUALENTE</span>  @endif
+            </h4>
+              
+            </div>
           </div>
-          <div class="col-md-8">
-            <h3>Añadir Porcentaje dolar RKE</h3>
-            <form  action="{{route('tasa.store')}}"  method="POST" >
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              <div class="row">
-                <div class="col-md-2">
-                  <label class="labels">Dolar Api</label>
-                  <input id="dolar_api" type="text" name="dolar_api" class="form-control" style="pointer-events: none;">
-                </div>
-                <div class="col-md-3">
-                  <label class="labels">Añadir Porcentaje</label>
-                  <input id="porcentaje_dolar" type="text" name="porcentaje_dolar" class="form-control" onchange="porcentaje()"  pattern="[0-9]+">
-                </div>
-                <div class="col-md-3">
-                  <label class="labels">Total RKE dolar</label>
-                  <input id="dolar_rke" type="text" name="dolar_rke" class="form-control" style="pointer-events: none;">
-                </div>
-                <div class="col-md-2">
-                  <br>
-                  <button id="saveTasa" class="btn btn-primary" type="submit"  >Guardar</button>
-                </div>
+        
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="col-md-8">
+          <h3>Añadir Porcentaje dolar RKE</h3>
+          <form  action="{{route('tasa.store')}}"  method="POST" >
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <div class="row">
+              <div class="col-md-2">
+                <label class="labels">Dolar Api</label>
+                <input id="dolar_api" type="text" name="dolar_api" class="form-control" style="pointer-events: none;">
               </div>
-            </form>
-          </div>
+              <div class="col-md-3">
+                <label class="labels">Añadir Porcentaje</label>
+                <input id="porcentaje_dolar" type="text" name="porcentaje_dolar" class="form-control" onchange="porcentaje()"  pattern="[0-9]+">
+              </div>
+              <div class="col-md-3">
+                <label class="labels">Total RKE dolar</label>
+                <input id="dolar_rke" type="text" name="dolar_rke" class="form-control" style="pointer-events: none;">
+              </div>
+              <div class="col-md-2">
+                <br>
+                <button id="saveTasa" class="btn btn-primary" type="submit"  >Guardar</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

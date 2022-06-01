@@ -42,7 +42,7 @@
                             @endif
                             @foreach($users as $user)
                             @if($user->id == $recarga->usuario_id )
-                            <td>{{$user->name}}</td>
+                            <td>{{$user->username}}</td>
                             @endif
                             @endforeach
                             @foreach($bancos as $banco)
