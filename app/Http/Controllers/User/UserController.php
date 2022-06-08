@@ -113,7 +113,7 @@ class UserController extends Controller
             // 'foto' => $nombreimg,
             'name' => $request->name,
             'apellido' => $request->apellido,
-            'username' => $request->username,
+            // 'username' => $request->username,
             'cedula' => $request->cedula,
             'phone' => $request->phone,
             'pais_id' => $request->pais_id,
