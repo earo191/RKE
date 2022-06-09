@@ -54,8 +54,8 @@
         <p>PlayRKE © 2022, todos los derechos reservados.</p>
         <div class="user-register" style="font-size: 10.5px;">
           <a href="{{ route('info.terminos') }}">Términos y condiciones -</a>
-          <a href="{{ route('info.quienesomos') }}"> Quienes somos - </a>
-          <a href="{{ route('info.politicas') }}">Politica de privacidad</a>
+          <a href="{{ route('info.acerca') }}"> Quienes somos - </a>
+          <a href="{{ route('info.privacidad') }}">Politica de privacidad</a>
         </div>
         
       </div>

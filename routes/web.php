@@ -45,9 +45,9 @@ Route::group(['prefix' => 'usuario', 'as' => 'usuario.'], function () {
 
 Route::group(['prefix' => 'info', 'as' => 'info.'], function () {
     Route::get('/terminos', function () {return view('modulos.user.informacion.terminos'); })->name('terminos');
+    Route::get('/acerca', function () {return view('modulos.user.informacion.acerca'); })->name('acerca');
+    Route::get('/privacidad', function () {return view('modulos.user.informacion.privacidad'); })->name('privacidad');
     Route::get('/quienesomos', function () {return view('modulos.user.informacion.quienesomos'); })->name('quienesomos');
-    Route::get('/politicas', function () {return view('modulos.user.informacion.politicas'); })->name('politicas');
-
 });
 
 Route::group(['prefix' => 'recarga', 'as' => 'recarga.'], function () {
