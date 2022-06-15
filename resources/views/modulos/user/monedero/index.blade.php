@@ -1,112 +1,166 @@
 @extends('layouts.app_rke')
-
-
-
+<title>Monedero - PlayRKE</title>
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="info-box">
-                        
+<!--Contenedor Monedero-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <!--Saldo Disponible-->
+            <div class="col-md-3">
+                <div class="info-box" title="Saldo Disponible">
+                    <span class="info-box-icon bg-info elevation-1"><i class=" fas fa-wallet"></i></span>
                         <div class="info-box-content"  >
-                            <span style="font-size: 18px;">Saldo disponibles</span>
-                            
+                            <span style="font-size: 17px;">Saldo Disponible</span>
                             <div id="saldos" class="saldos">
-                                <span id="saldo-bs" class="info-box-number">{{$monedero->saldo}} Bs</span>
-                                <span id="saldo-dolar" style="display: none;" class="info-box-number">{{number_format($monedero->saldo / $tasa[0]->tasa_RKE,2)}}  $</span>
+                                <span id="saldo-bs" class="info-box-number">Bs. {{$monedero->saldo}}</span>
+                                <span id="saldo-dolar" style="display: none;" class="info-box-number">
+                                    @if ( count($tasa) > 0 )
+                                        $ {{number_format($monedero->saldo / $tasa[0]->tasa_RKE,2)}}
+                                    @else
+                                        {{number_format($monedero->saldo)}}  $
+                                    @endif
+                                </span>
                             </div>
                         </div>
-                        
-    
-                        
                     </div>
-    
                 </div>
-                <div class="col-md-3" style="">
-                    <a href="" title="Recargar Saldo" style="" data-target="#exampleModalLong" data-toggle="modal">
-                        <div class="info-box">
-                               
+                
+                <!--Deposito-Recargar-->
+                <div class="col-md-2">
+                        <div class="info-box" title="Recargar Saldo"data-target="#exampleModalLong" data-toggle="modal">
+                             <a class="info-box-icon bg-info elevation-1" href="" data-target="#exampleModalLong" data-toggle="modal">
+                                <i class="fas fa-donate"></i>
+                            </a>  
                             <div class="info-box-content">
-                                
-                                <span class="" style="font-size: 25px;">DEPOSITO</span>
-                                
+                                 <a href="" data-target="#exampleModalLong" data-toggle="modal">
+                                <span class="" style="font-size: 18px;" align="center">Depósito</span></a>
                             </div>
-                            <span class="info-box-icon bg-info elevation-1">
-                                <i class="fas fa-plus-square fa-2x"></i>
-                                
-                            </span>  
                             
                         </div>
-                    </a>
                     
                 </div>
-                <div class="col-md-3">
-                    <a href="" title="Retirar Saldo" style="" data-target="#exampleModal" data-toggle="modal">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-danger elevation-1">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                
-                            </span>                                        
+                <!--Retirar-->
+                <div class="col-md-2">
+                        <div class="info-box" title="Retirar Saldo"data-target="#exampleModal" data-toggle="modal" >
+                             <a class="info-box-icon bg-danger elevation-1" href="" data-target="#exampleModal" data-toggle="modal">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </a>  
                             <div class="info-box-content">
-                                
-                                <span class="" style="font-size: 25px;">RETIRAR</span>
-                                
+                                 <a href="" data-target="#exampleModal" data-toggle="modal">
+                                <span class="" style="font-size: 18px;">Retirar</span></a>
                             </div>
-                                                                
+                            
                         </div>
-                    </a>
+                    
                 </div>
+                <!--Saldo Congelado-->
                 <div class="col-md-3">
+                    <div class="info-box" title="Saldo Congelado">
+                        <span class="info-box-icon bg-info elevation-1"><i class=" fas fa-lock"></i></span>
+                        <div class="info-box-content"  >
+                            <span style="font-size: 15px;">Saldo Congelado</span>
+                            <div id="saldos" class="saldos">
+                                <span id="saldo-bs" class="info-box-number">Bs. {{$monedero->saldo}}</span>
+                                <span id="saldo-dolar" style="display: none;" class="info-box-number">
+                                    @if ( count($tasa) > 0 )
+                                        $ {{number_format($monedero->saldo / $tasa[0]->tasa_RKE,2)}}
+                                    @else
+                                        {{number_format($monedero->saldo)}}  $
+                                    @endif
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--TasaCambio-->
+                <div class="col-md-2">
                     <div class="info-box">
                         <span class="info-box-icon bg-info elevation-1"><i class="fas fa-dollar-sign"></i></span>
-        
-                        <div class="info-box-content">
-                            <span class="info-box-text">1 Dolar </span>
+                        <div class="info-box-content" title="Tasa de Cambio">
+                            <span class="info-box-text" "font-size: 16px;">Dólar USD</span>
+                            
                             <span class="info-box-number">
-                                {{$tasa[0]->tasa_RKE}}
+                                @if ( count($tasa) > 0 )
+                                 Bs. {{$tasa[0]->tasa_RKE}}
+                                @else
+                                <span id="dolar_api" type="text" name="dolar_api" ></span>
+                                @endif
                             </span>
+                            
                         </div>
-                        
                     </div>
                 </div>
-                
-            </div>  
+            </div>
+            <!--Tabla depositos-->
             <div class="card">
-                
-               
                 <div class="card-body">
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <h4>Recargas Realizadas </h4>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" align="center">
+                        <h5>D E P O S I T O S</h5>
                         <div class="table-responsive">
                             <table id="" class="table table-bordered table-striped dt-responsive" style="width:100%">
-                    
-                                <thead>
+                                <thead align="center">
                                     <tr>
-                                        <th>ID Recarga</th> 
-                                        <th>Monto</th>
                                         <th>Fecha</th>
                                         <th>Referencia</th>
-                                        <th>Descripcion</th>
+                                        <th>Monto</th>
                                         <th>Estado</th>
                                     </tr>
-                                
                                 </thead>
-                                <tbody>
+                                <tbody align="center">
                                     @foreach($recargas  as $recarga)
                                     <tr>
-                                        <th>{{$recarga->id}}</th> 
-                                        <th>{{$recarga->monto}}</th>
                                         <th>{{$recarga->fecha_recarga}}</th>
                                         <td>{{$recarga->referencia}}</td>
-                                        <td>{{$recarga->descripcion}}</td>
+                                        <th>{{$recarga->monto}}</th>
+                                        <!--<td>{{$recarga->descripcion}}</td>-->
                                         @if ($recarga->estatus == 0)
                                             <td>
                                                 <a class="a-edit btn  btn-danger">En espera</a>
                                             </td>
                                         @else
                                             <td>
-                                                <a class="a-edit btn  btn-success">Aprobada</a>
+                                                <a class="a-edit btn  btn-success">Aprobado</a>
+                                            </td>
+                                        @endif
+            
+                                    </tr>
+                                    @endforeach          
+                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            <!--Tabla retiros-->
+            <div class="card">
+                <div class="card-body">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" align="center">
+                        <h5>R E T I R O S</h5>
+                        <div class="table-responsive">
+                            <table id="" class="table table-bordered table-striped dt-responsive" style="width:100%">
+                                <thead align="center">
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Referencia</th>
+                                        <th>Monto</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="center">
+                                    @foreach($recargas  as $recarga)
+                                    <tr>
+                                        <th>{{$recarga->fecha_recarga}}</th>
+                                        <td>{{$recarga->referencia}}</td>
+                                        <th>{{$recarga->monto}}</th>
+                                        <!--<td>{{$recarga->descripcion}}</td>-->
+                                        @if ($recarga->estatus == 0)
+                                            <td>
+                                                <a class="a-edit btn  btn-danger">En espera</a>
+                                            </td>
+                                        @else
+                                            <td>
+                                                <a class="a-edit btn  btn-success">Aprobado</a>
                                             </td>
                                         @endif
             
@@ -128,7 +182,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2>Seleccione el metodo de recarga</h2>
+                    <h3>Seleccione el método de depósito/recarga</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -165,14 +219,14 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h2>En estos momentos esta funcion no esta disponible</h2>
+                    <h2>En estos momentos esta función no esta disponible</h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
                 {{-- <div class="modal-header">
-                    <h2>Seleccione el metodo de Retiro</h2>
+                    <h2>Seleccione el método de retiro</h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -219,4 +273,3 @@
         );
     </script>
 @endsection
-
