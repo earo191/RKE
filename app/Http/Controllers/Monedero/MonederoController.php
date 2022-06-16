@@ -105,6 +105,13 @@ class MonederoController extends Controller
     public function show($id)
     {
         //
+      
+    }
+
+    public function transferir()
+    {
+        //
+        return 'hola';
     }
 
     /**

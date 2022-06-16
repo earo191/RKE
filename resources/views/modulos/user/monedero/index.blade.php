@@ -6,18 +6,37 @@
     <div class="col-md-12">
         <div class="row">
             <!--Saldo Disponible-->
-            <div class="col-md-3">
-                <div class="info-box" title="Saldo Disponible">
-                    <span class="info-box-icon bg-info elevation-1"><i class=" fas fa-wallet"></i></span>
+                <div class="col-md-2">
+                    <div class="info-box" title="Saldo Disponible">
+                        <span class="info-box-icon bg-info elevation-1"><i class=" fas fa-wallet"></i></span>
+                            <div class="info-box-content"  >
+                                <span style="font-size: 17px;">Saldo Disponible</span>
+                                <div id="saldos" class="saldos">
+                                    <span id="saldo-bs" class="info-box-number">Bs. {{$monedero->saldo}}</span>
+                                    <span id="saldo-dolar" style="display: none;" class="info-box-number">
+                                        @if ( count($tasa) > 0 )
+                                            $ {{number_format($monedero->saldo / $tasa[0]->tasa_RKE,2)}}
+                                        @else
+                                            {{number_format($monedero->saldo)}}  $
+                                        @endif
+                                    </span>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <!--Saldo Congelado-->
+                <div class="col-md-2">
+                    <div class="info-box" title="Saldo Congelado">
+                        <span class="info-box-icon bg-info elevation-1"><i class=" fas fa-lock"></i></span>
                         <div class="info-box-content"  >
-                            <span style="font-size: 17px;">Saldo Disponible</span>
-                            <div id="saldos" class="saldos">
-                                <span id="saldo-bs" class="info-box-number">Bs. {{$monedero->saldo}}</span>
-                                <span id="saldo-dolar" style="display: none;" class="info-box-number">
+                            <span style="font-size: 15px;">Saldo Congelado</span>
+                            <div id="saldosCongelado" class="saldos">
+                                <span id="saldo-bsC" class="info-box-number">Bs. {{$saldoCongelado}}</span>
+                                <span id="saldo-dolarC" style="display: none;" class="info-box-number">
                                     @if ( count($tasa) > 0 )
-                                        $ {{number_format($monedero->saldo / $tasa[0]->tasa_RKE,2)}}
+                                        $ {{number_format($saldoCongelado / $tasa[0]->tasa_RKE,2)}}
                                     @else
-                                        {{number_format($monedero->saldo)}}  $
+                                        {{number_format($saldoCongelado)}}  $
                                     @endif
                                 </span>
                             </div>
@@ -53,25 +72,7 @@
                         </div>
                     
                 </div>
-                <!--Saldo Congelado-->
-                <div class="col-md-3">
-                    <div class="info-box" title="Saldo Congelado">
-                        <span class="info-box-icon bg-info elevation-1"><i class=" fas fa-lock"></i></span>
-                        <div class="info-box-content"  >
-                            <span style="font-size: 15px;">Saldo Congelado</span>
-                            <div id="saldosCongelado" class="saldos">
-                                <span id="saldo-bsC" class="info-box-number">Bs. {{$saldoCongelado}}</span>
-                                <span id="saldo-dolarC" style="display: none;" class="info-box-number">
-                                    @if ( count($tasa) > 0 )
-                                        $ {{number_format($saldoCongelado / $tasa[0]->tasa_RKE,2)}}
-                                    @else
-                                        {{number_format($saldoCongelado)}}  $
-                                    @endif
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <!--TasaCambio-->
                 <div class="col-md-2">
                     <div class="info-box">
@@ -87,6 +88,16 @@
                                 @endif
                             </span>
                             
+                        </div>
+                    </div>
+                </div>
+                {{-- transferir a usuario --}}
+                <div class="col-md-2">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-share"></i></span>
+                        <div class="info-box-content" title="Transferir a usuario">
+                            <a href={{route('monedero.transferir')}}>
+                                <span class="" style="font-size: 18px;" align="center">Transferir a Usuario</span></a>
                         </div>
                     </div>
                 </div>
