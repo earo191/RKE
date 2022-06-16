@@ -3,7 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use App\User;
+use Illuminate\Support\Facades\Auth;
 class validationPerfil extends FormRequest
 {
     /**
@@ -23,11 +24,13 @@ class validationPerfil extends FormRequest
      */
     public function rules()
     {
+
         return [
-            'phone'=> 'required|integer',
-            'cedula'=> 'required|integer',
+            // 'phone'=> 'integer',
+            'cedula'=> 'required|integer|unique:users,cedula,'.Auth::user()->id
+            ,
             'name'=> 'required|string|max:20',
-            'username'=> 'required|string|max:10',
+            'username'=> 'string|max:10',
             'apellido'=> 'required|string|max:20',
             
         ];
@@ -41,6 +44,7 @@ class validationPerfil extends FormRequest
             // 'phone.max' => 'El campo telefono no puede tener mas de 11 caracteres',
             'cedula.integer' => 'El campo cedula solo puede ser numerico',
             'cedula.required' => 'El campo cedula es requerido',
+            'cedula.unique' => 'El campo cedula ya esta registrado en el sistema',
             // 'cedula.max' => 'El campo cedula no puede tener mas de 8 caracteres',
             'name.required' => 'El campo nombre es requerido',
             'name.max' => 'El campo nombre no puede tener mas de 20 caracteres',

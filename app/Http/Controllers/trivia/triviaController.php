@@ -100,7 +100,7 @@ class triviaController extends Controller
             ${"nombre_" . $i} = ${"files_pregunta" . $i}->getClientOriginalName();
             ${"files_pregunta" . $i}->move('imgSystema/imgPreguntas/', ${"nombre_" . $i});
             ${"pregunta_" . $i}->imagen = ${"nombre_" . $i};
-            ${"pregunta_" . $i}->trivia_id = $trivia->id;
+            ${"pregunta_" . $i}->id_trivia = $trivia->id;
 
 
             ${"pregunta_" . $i}->save();

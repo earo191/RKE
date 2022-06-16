@@ -1215,6 +1215,18 @@
                 });
 
             </script>
+            <script>
+                 $( "#saldosCongelado" ).hover(
+                    function() {
+                    $("#saldo-dolarC").css("display", "block");
+                    $("#saldo-bsC").css("display", "none");
+                    },
+                    function() {
+                    $("#saldo-dolarC").css("display", "none");
+                    $("#saldo-bsC").css("display", "block");
+                    }
+                );
+            </script>
 
             @yield('scripts')
 

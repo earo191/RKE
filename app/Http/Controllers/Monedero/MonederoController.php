@@ -10,6 +10,7 @@ use App\Models\Banco;
 use App\Models\Recarga;
 use App\Models\Monedero;
 use App\Models\CuentaBancaria;
+use App\Models\SaldoCongelado;
 use App\Models\Tasa; 
 use Session;
 class MonederoController extends Controller
@@ -25,10 +26,15 @@ class MonederoController extends Controller
         $monedero = Monedero::where("usuario_id", "=",auth()->user()->id )->get();
         $recargas = Recarga::where("usuario_id","=",auth()->user()->id)->get();
         $tasa = Tasa::orderBy('created_at','DESC')->get();
+        // $saldoCongelado = SaldoCongelado::where("usuario_id","=",auth()->user()->id)->get();
+        $saldoCongelado = SaldoCongelado::where('usuario_id', auth()->user()->id)->get()->sum('saldo_congelado');
+        
+        // return $saldoCongelado;
         return view('modulos/user/monedero/index')->with([
             'recargas' =>$recargas,
             'monedero' =>$monedero[0],
-            'tasa' => $tasa
+            'tasa' => $tasa,
+            'saldoCongelado' => $saldoCongelado
         ]);
     }
 

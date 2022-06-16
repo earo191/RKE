@@ -59,13 +59,13 @@
                         <span class="info-box-icon bg-info elevation-1"><i class=" fas fa-lock"></i></span>
                         <div class="info-box-content"  >
                             <span style="font-size: 15px;">Saldo Congelado</span>
-                            <div id="saldos" class="saldos">
-                                <span id="saldo-bs" class="info-box-number">Bs. {{$monedero->saldo}}</span>
-                                <span id="saldo-dolar" style="display: none;" class="info-box-number">
+                            <div id="saldosCongelado" class="saldos">
+                                <span id="saldo-bsC" class="info-box-number">Bs. {{$saldoCongelado}}</span>
+                                <span id="saldo-dolarC" style="display: none;" class="info-box-number">
                                     @if ( count($tasa) > 0 )
-                                        $ {{number_format($monedero->saldo / $tasa[0]->tasa_RKE,2)}}
+                                        $ {{number_format($saldoCongelado / $tasa[0]->tasa_RKE,2)}}
                                     @else
-                                        {{number_format($monedero->saldo)}}  $
+                                        {{number_format($saldoCongelado)}}  $
                                     @endif
                                 </span>
                             </div>
@@ -117,9 +117,16 @@
                                             <td>
                                                 <a class="a-edit btn  btn-danger">En espera</a>
                                             </td>
-                                        @else
+                                            
+                                        @endif    
+                                        @if ($recarga->estatus == 1)
                                             <td>
                                                 <a class="a-edit btn  btn-success">Aprobado</a>
+                                            </td>
+                                        @endif
+                                        @if ($recarga->estatus == 2)
+                                            <td>
+                                                <a class="a-edit btn  btn-secondary">Congelado</a>
                                             </td>
                                         @endif
             
@@ -148,7 +155,7 @@
                                     </tr>
                                 </thead>
                                 <tbody align="center">
-                                    @foreach($recargas  as $recarga)
+                                    {{-- @foreach($recargas  as $recarga)
                                     <tr>
                                         <th>{{$recarga->fecha_recarga}}</th>
                                         <td>{{$recarga->referencia}}</td>
@@ -166,7 +173,7 @@
             
                                     </tr>
                                     @endforeach          
-                    
+                     --}}
                                 </tbody>
                             </table>
                         </div>
@@ -271,5 +278,9 @@
             $("#saldo-bs").css("display", "block");
             }
         );
+        
     </script>
+   
+
+
 @endsection

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\PagoMovil;
 use App\User;
 use App\Models\Banco;
+use App\Http\Requests\validationPagomovil;
 
 class PagoMovilController extends Controller
 {
@@ -38,7 +39,7 @@ class PagoMovilController extends Controller
         ]);
     }
     
-    public function store(Request $request){
+    public function store(validationPagomovil $request){
 
         // return $request->all();
         $user= User::where('id',auth()->user()->id)->get();
@@ -68,7 +69,7 @@ class PagoMovilController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id){
+    public function update(validationPagomovil $request, $id){
         
         // return $request->all();
         $pagoMovil = PagoMovil::findOrFail($id);

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Models\Banco;
 use App\Models\CuentaBancaria;
+use App\Http\Requests\validationCuentabancaria;
 
 
 class BancosController extends Controller
@@ -51,7 +52,7 @@ class BancosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(validationCuentabancaria $request)
     {
         //
         $banco_id = Banco::where("codigo", "=", $request->codigo_banco)->get();
@@ -108,7 +109,7 @@ class BancosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(validationCuentabancaria $request, $id)
     {
         //
         // return $request->all();

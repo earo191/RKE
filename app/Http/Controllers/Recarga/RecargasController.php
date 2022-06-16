@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Recarga;
 use App\Models\Banco;
 use App\Models\Monedero;
+
+use App\Models\SaldoCongelado;
 use App\User;
 
 use Illuminate\Http\Request;
@@ -49,6 +51,15 @@ class RecargasController extends Controller
             'users' => $users]);
     }
 
+    public function congelar($id)
+    {
+        $recarga = Recarga::findOrFail($id);
+        // return $recarga;
+        return view('modulos/admin/recargas/congelar')->with([
+            'recarga' => $recarga
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -68,6 +79,25 @@ class RecargasController extends Controller
     public function store(Request $request)
     {
         //
+        $user= User::where('id',$request->user_id)->get();
+        $recarga= Recarga::where('id',$request->id_recarga)->get();
+
+        $saldoCongelado = new SaldoCongelado;
+        $saldoCongelado->saldo_congelado = $request->monto;
+        // $saldoCongelado->fecha_recarga = $request->fecha_recarga;
+        // $saldoCongelado->referencia = $request->referencia;
+        $saldoCongelado->recarga_id =$recarga->first()->id;
+        $saldoCongelado->usuario_id =  $user->first()->id;
+       
+
+        $saldoCongelado->save();
+
+
+        $recarga[0]->estatus = '2';
+        $recarga[0]->save();
+
+
+        return redirect('recarga'); 
     }
 
     /**
