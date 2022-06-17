@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
-
-class validationCuentabancaria extends FormRequest
+use App\Models\Monedero;
+class ValidarTranfer extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +23,19 @@ class validationCuentabancaria extends FormRequest
      */
     public function rules()
     {
+        
+        $monedero = Monedero::where("usuario_id", "=",auth()->user()->id )->get();
         return [
-            'nro_cuenta'=> 'required|digits:16',
-            
+            //
+            'monto'=> 'required|max:'. $monedero[0]->saldo,
         ];
     }
-
     public function messages ()
     {
+        $monedero = Monedero::where("usuario_id", "=",auth()->user()->id )->get();
         return [
-            'nro_cuenta.required' => 'El campo nro_cuenta es requerido',
-            'nro_cuenta.digits' => 'nro_cuenta no puede ser menor o mayor a 16 digitos'
+            'monto.required' => 'El campo monto es requerido',
+            'monto.max' => 'monto no puede ser mayor a '.$monedero[0]->saldo
         ];
 
     }

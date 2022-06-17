@@ -76,6 +76,7 @@ Route::group(['prefix' => 'monedero', 'as' => 'monedero.'], function () {
     Route::get('/Crear', 'monedero\MonederoController@create')->name('create');
     Route::get('/tranferencia', 'monedero\MonederoController@createTranferencia')->name('createTransfer');
     Route::post('store', 'monedero\MonederoController@store')->name('store');
+    Route::post('storeTransfer', 'monedero\MonederoController@storeTransfer')->name('storeTransfer');
     Route::get('/transferir', 'monedero\MonederoController@transferir')->name('transferir');
     // Route::post('store/transfer', 'monedero\MonederoController@storeTranfer')->name('storeTranfer');
 

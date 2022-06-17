@@ -13,6 +13,8 @@ use App\Models\CuentaBancaria;
 use App\Models\SaldoCongelado;
 use App\Models\Tasa; 
 use Session;
+use App\Http\Requests\ValidarTranfer;
+
 class MonederoController extends Controller
 {
     /**
@@ -111,7 +113,27 @@ class MonederoController extends Controller
     public function transferir()
     {
         //
-        return 'hola';
+        $monedero = Monedero::where("usuario_id", "=",auth()->user()->id )->get();
+        $users = User::All();
+        // return $users;
+        return view('modulos/user/monedero/tranfer')->with([
+            'monedero' => $monedero,
+            'users' => $users
+        ]);
+    }
+    public function storeTransfer(ValidarTranfer $request)
+    {
+        //
+        $monederoUser = Monedero::where("usuario_id", "=",$request->user )->get();
+        $monedero = Monedero::where("usuario_id", "=",auth()->user()->id )->get();
+        // return $monedero;
+        $monederoUser[0]->saldo = $monederoUser[0]->saldo + $request->monto;
+        $monederoUser[0]->save();
+
+        $monedero[0]->saldo = $monedero[0]->saldo - $request->monto;
+        $monedero[0]->save();
+        Return redirect()->route('monedero.index');
+        
     }
 
     /**
